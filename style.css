@@ -1,0 +1,186 @@
+/* style.css */
+:root {
+  --bg-color: #f0f0f0;
+  --text-color: #333;
+  --card-color: white;
+  --header-bg: #2e2e6f;
+}
+
+body.dark {
+  --bg-color: #1c1c1c;
+  --text-color: #f0f0f0;
+  --card-color: #2a2a2a;
+  --header-bg: #111;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: 0.3s;
+}
+
+header {
+  background-color: var(--header-bg);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.header-right {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+button,
+.hamburger {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #00c9ff, #92fe9d);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover,
+.hamburger:hover {
+  background: linear-gradient(45deg, #007adf, #00ecbc);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  height: 100vh;
+  width: 250px;
+  background: var(--card-color);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.side-menu.show {
+  right: 0;
+}
+
+.side-menu a {
+  display: block;
+  margin: 1rem 0;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.side-menu a:hover {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  transform: scale(1.05);
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--card-color);
+}
+
+.filters input,
+.filters select {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.news {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.news-card {
+  background: var(--card-color);
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: 0.3s;
+  position: relative;
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.news-card h3 {
+  padding: 0.5rem 1rem 0;
+}
+
+.news-card p {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+}
+
+.news-card button {
+  margin: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  background: #ff416c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.news-card button:hover {
+  background: #ff1f4c;
+}
+
+.admin {
+  background-color: var(--card-color);
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.admin input,
+.admin textarea,
+.admin select {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+footer {
+  text-align: center;
+  background-color: var(--header-bg);
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.hidden {
+  display: none;
+}

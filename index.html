@@ -1,0 +1,86 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime Haberleri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Anime Haberleri</h1>
+    <div class="header-right">
+      <button id="darkToggle">🌙</button>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
+
+  <div id="sideMenu" class="side-menu">
+    <a href="index.html">🏠 Ana Sayfa</a>
+    <a href="#">🔍 Keşfet</a>
+    <a href="#">📰 Haberler</a>
+    <a href="#" onclick="showAbout()">ℹ️ Hakkımızda</a>
+    <a href="#" onclick="showSaved()">🔖 Kaydettiklerim</a>
+    <a href="#" onclick="showUserLogin()">👤 Giriş / Kayıt</a>
+    <a href="#" onclick="showRequestForm()">📬 Haber İsteği</a>
+    <a href="#" onclick="showAdminLogin()">🔐 Admin Girişi</a>
+  </div>
+
+  <main>
+    <section class="filters">
+      <input type="text" id="searchInput" placeholder="Haber Ara...">
+      <select id="categoryFilter">
+        <option value="Tümü">Tümü</option>
+        <option value="Aksiyon">Aksiyon</option>
+        <option value="Romantik">Romantik</option>
+        <option value="Fantezi">Fantezi</option>
+      </select>
+    </section>
+
+    <section id="newsList" class="news"></section>
+
+    <section id="adminLogin" class="admin hidden">
+      <h2>Admin Giriş</h2>
+      <input type="text" id="adminUser" placeholder="Kullanıcı Adı">
+      <input type="password" id="adminPass" placeholder="Şifre">
+      <button onclick="checkAdminLogin()">Giriş Yap</button>
+    </section>
+
+    <section id="adminPanel" class="admin hidden">
+      <h2>Admin Paneli</h2>
+      <input type="text" id="newsTitle" placeholder="Haber Başlığı">
+      <textarea id="newsContent" placeholder="Haber İçeriği"></textarea>
+      <input type="text" id="newsImage" placeholder="Resim URL'si">
+      <select id="newsCategory">
+        <option value="Aksiyon">Aksiyon</option>
+        <option value="Romantik">Romantik</option>
+        <option value="Fantezi">Fantezi</option>
+      </select>
+      <button onclick="addNews()">Haberi Ekle</button>
+
+      <h3>Gelen İstekler</h3>
+      <ul id="requestList"></ul>
+    </section>
+
+    <section id="userLogin" class="admin hidden">
+      <h2>Giriş / Kayıt</h2>
+      <input type="text" id="username" placeholder="Kullanıcı Adı">
+      <button onclick="loginUser()">Giriş Yap</button>
+    </section>
+
+    <section id="requestForm" class="admin hidden">
+      <h2>Haber İsteği Gönder</h2>
+      <input type="text" id="reqTitle" placeholder="İstek Başlığı">
+      <textarea id="reqContent" placeholder="Detaylar..."></textarea>
+      <button onclick="sendRequest()">Gönder</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Anime Haberleri | Tüm Hakları Saklıdır.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kaydettiklerim</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📌 Kaydettiğim Haberler</h1>
+    <div class="header-right">
+      <button onclick="goBack()">🔙 Geri</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="savedNews" class="news"></section>
+  </main>
+
+  <footer>
+    <p>© 2025 Anime Haberleri | Tüm Hakları Saklıdır.</p>
+  </footer>
+
+  <script>
+    const saved = JSON.parse(localStorage.getItem("savedNews")) || [];
+    const currentUser = localStorage.getItem("username");
+
+    const list = document.getElementById("savedNews");
+
+    if (saved.length === 0 || !currentUser) {
+      list.innerHTML = "<p style='padding: 2rem;'>Henüz hiçbir haber kaydetmediniz.</p>";
+    } else {
+      const filtered = saved.filter(item => item.savedBy === currentUser);
+      if (filtered.length === 0) {
+        list.innerHTML = "<p style='padding: 2rem;'>Bu kullanıcıya ait kayıtlı haber yok.</p>";
+      } else {
+        filtered.forEach(news => {
+          const card = document.createElement("div");
+          card.className = "news-card";
+          card.innerHTML = `
+            <img src="${news.image}" alt="">
+            <h3>${news.title}</h3>
+            <p>${news.content}</p>
+            <p><b>Kategori:</b> ${news.category}</p>
+          `;
+          list.appendChild(card);
+        });
+      }
+    }
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
